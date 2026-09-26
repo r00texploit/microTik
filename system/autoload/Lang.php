@@ -8,6 +8,26 @@
 
 class Lang
 {
+    public static function htmlLang()
+    {
+        global $config;
+
+        $iso = self::getIsoLang()[$config['language'] ?? 'english'] ?? 'en';
+        if (!is_string($iso) || !preg_match('/\A[a-z]{2,3}(?:-[a-z0-9]{2,8})*\z/i', $iso)) {
+            return 'en';
+        }
+
+        return strtolower($iso);
+    }
+
+    public static function direction()
+    {
+        // Follow the effective locale from init.php, including customer overrides.
+        // The legacy global rtl flag must not keep English pages right-to-left.
+        $language = explode('-', self::htmlLang())[0];
+        return in_array($language, ['ar', 'fa', 'he', 'iw', 'ir', 'ur'], true) ? 'rtl' : 'ltr';
+    }
+
     public static function T($key)
     {
         global $_L, $lan_file, $config;

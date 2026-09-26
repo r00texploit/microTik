@@ -21,9 +21,13 @@
             }
             // Create the chart data
             var data = {
-                labels: ['Active Users', 'Expired Users', 'Inactive Users'],
+                labels: [
+                    '{/literal}{Lang::T('Active Users')|escape:'javascript'}{literal}',
+                    '{/literal}{Lang::T('Expired Users')|escape:'javascript'}{literal}',
+                    '{/literal}{Lang::T('Inactive Users')|escape:'javascript'}{literal}'
+                ],
                 datasets: [{
-                    label: 'User Recharges',
+                    label: '{/literal}{Lang::T('User Recharges')|escape:'javascript'}{literal}',
                     data: [parseInt(u_act), parseInt(expired), parseInt(inactive)],
                     backgroundColor: ['rgba(4, 191, 13)', 'rgba(191, 35, 4)', 'rgba(0, 0, 255, 0.5'],
                     borderColor: ['rgba(0, 255, 0, 1)', 'rgba(255, 99, 132, 1)', 'rgba(0, 0, 255, 0.7'],

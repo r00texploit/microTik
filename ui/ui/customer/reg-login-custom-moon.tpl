@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{Lang::htmlLang()|escape:'html'}" dir="{Lang::direction()}">
 
 <head>
     <meta charset="UTF-8">
@@ -315,16 +315,17 @@
         }
         
     </style>
+    {include file="sections/language-head.tpl"}
 </head>
 
-<body>
+<body class="registration-moon">
     <!-- SweetAlert Notification -->
     {if isset($notify)}
     <script>
         document.body.style.overflow = 'hidden';
         Swal.fire({
             icon: '{if $notify_t == "s"}success{else}warning{/if}',
-            title: '{if $notify_t == "s"}Success{else}Error{/if}',
+            title: '{if $notify_t == "s"}{Lang::T('Success')|escape:'javascript'}{else}{Lang::T('Error')|escape:'javascript'}{/if}',
             html: '{$notify}',
             backdrop: 'rgba(0, 0, 0, 0.5)',
         }).then(() => {
@@ -407,9 +408,9 @@
                         <p>{Lang::T('Already have an account?')} <a href="{Text::url('login')}"
                                 class="linkButton">{Lang::T('Login')}</a></p>
                         <footer>
-                            © {$smarty.now|date_format:"%Y"} {$_c['CompanyName']}. All rights reserved. <br> <a
-                                href="pages/Privacy_Policy.html">Privacy</a> | <a
-                                href="pages/Terms_and_Conditions.html">Terms &amp; Conditions</a>
+                            © {$smarty.now|date_format:"%Y"} {$_c['CompanyName']}. {Lang::T('All rights reserved.')} <br> <a
+                                href="pages/Privacy_Policy.html">{Lang::T('Privacy Policy')}</a> | <a
+                                href="pages/Terms_and_Conditions.html">{Lang::T('Terms and Conditions')}</a>
                         </footer>
                     </div>
                 </div>
@@ -423,7 +424,7 @@
         const registerText = document.getElementById('register-text');
         registerForm.addEventListener('submit', function (event) {
             registerBtn.classList.add('loading');
-            registerText.textContent = 'Please Wait...';
+            registerText.textContent = '{Lang::T('Please Wait...')|escape:'javascript'}';
         });
 
         function toggleFields() {
@@ -433,7 +434,7 @@
 
             const backButton = document.createElement('button');
             backButton.className = 'submit-btn';
-            backButton.textContent = '← Back';
+            backButton.textContent = '{if Lang::direction() == 'rtl'}→{else}←{/if} {Lang::T('Back')|escape:'javascript'}';
             backButton.style.marginBottom = '15px';
             backButton.onclick = () => {
                 document.getElementById('basicFields').style.display = 'block';

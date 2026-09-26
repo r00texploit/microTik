@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="has-aside-left has-aside-mobile-transition has-navbar-fixed-top has-aside-expanded">
+<html lang="{Lang::htmlLang()|escape:'html'}" dir="{Lang::direction()}" class="has-aside-left has-aside-mobile-transition has-navbar-fixed-top has-aside-expanded">
 
 <head>
     <meta charset="utf-8">
@@ -27,6 +27,7 @@
         {$xheader}
     {/if}
 
+    {include file="sections/language-head.tpl"}
 </head>
 
 <body class="hold-transition modern-skin-dark sidebar-mini">
@@ -38,7 +39,7 @@
             </a>
             <nav class="navbar navbar-static-top">
                 <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
-                    <span class="sr-only">Toggle navigation</span>
+                    <span class="sr-only">{Lang::T('Toggle navigation')}</span>
                 </a>
                 <div class="navbar-custom-menu">
                     <ul class="nav navbar-nav">
@@ -82,18 +83,18 @@
                                 {/if}
                                 <img src="{$app_url}/{$UPLOAD_PATH}{$_user['photo']}.thumb.jpg"
                                     onerror="this.src='{$app_url}/{$UPLOAD_PATH}/user.default.jpg'" class="user-image"
-                                    alt="User Image">
+                                    alt="{Lang::T('User Image')|escape:'html'}">
                             </a>
                             <ul class="dropdown-menu">
                                 <li class="user-header">
                                     <img src="{$app_url}/{$UPLOAD_PATH}{$_user['photo']}.thumb.jpg"
                                         onerror="this.src='{$app_url}/{$UPLOAD_PATH}/user.default.jpg'" class="img-circle"
-                                        alt="User Image">
+                                        alt="{Lang::T('User Image')|escape:'html'}">
 
                                     <p>
                                         {$_user['fullname']}
-                                        <small>{$_user['phonenumber']}<br>
-                                            {$_user['email']}</small>
+                                        <small><bdi dir="ltr">{$_user['phonenumber']}</bdi><br>
+                                            <bdi dir="ltr">{$_user['email']}</bdi></small>
                                     </p>
                                 </li>
                                 <li class="user-body">
@@ -142,7 +143,7 @@
                         <li {if $_system_menu eq 'voucher'}class="active" {/if}>
                             <a href="{Text::url('voucher/activation')}">
                                 <i class="fa fa-ticket"></i>
-                                <span>Voucher</span>
+                                <span>{Lang::T('Voucher')}</span>
                             </a>
                         </li>
                     {/if}

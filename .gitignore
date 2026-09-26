@@ -38,6 +38,7 @@ system/lan/**
 !system/lan/spanish.json
 !system/lan/turkish.json
 !system/lan/english.json
+!system/lan/arabic.json
 !system/lan/country.json
 *.zip
 system/devices/**

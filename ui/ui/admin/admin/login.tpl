@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="{Lang::htmlLang()|escape:'html'}" dir="{Lang::direction()}">
 
 <head>
     <meta charset="utf-8">
@@ -33,6 +33,7 @@
             margin-top: 20px;
         }
     </style>
+    {include file="sections/language-head.tpl"}
 </head>
 
 <body class="hold-transition login-page">

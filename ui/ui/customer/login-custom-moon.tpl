@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{Lang::htmlLang()|escape:'html'}" dir="{Lang::direction()}">
 
 <head>
     <meta charset="UTF-8">
@@ -536,6 +536,7 @@
             }
         }
     </style>
+    {include file="sections/language-head.tpl"}
 </head>
 
 <body>
@@ -545,7 +546,7 @@
         document.body.style.overflow = 'hidden';
         Swal.fire({
             icon: '{if $notify_t == "s"}success{else}warning{/if}',
-            title: '{if $notify_t == "s"}Success{else}Error{/if}',
+            title: '{if $notify_t == "s"}{Lang::T('Success')|escape:'javascript'}{else}{Lang::T('Error')|escape:'javascript'}{/if}',
             text: '{$notify}',
             backdrop: 'rgba(0, 0, 0, 0.5)',
         }).then(() => {
@@ -614,11 +615,9 @@
                                 class="linkButton">{Lang::T('Register')}</a></p>
                         {/if}
                         <footer>
-                            © {$smarty.now|date_format:"%Y"} {$_c['CompanyName']}. All rights reserved. <br> <a
-                                href="pages/Privacy_Policy.html">Privacy</a> | <a
-                                href="pages/Terms_and_Conditions.html">Terms
-                                &amp;
-                                Conditions</a>
+                            © {$smarty.now|date_format:"%Y"} {$_c['CompanyName']}. {Lang::T('All rights reserved.')} <br> <a
+                                href="pages/Privacy_Policy.html">{Lang::T('Privacy Policy')}</a> | <a
+                                href="pages/Terms_and_Conditions.html">{Lang::T('Terms and Conditions')}</a>
                         </footer>
                     </div>
                 </div>
@@ -633,7 +632,7 @@
 
         loginForm.addEventListener('submit', function (event) {
             loginBtn.classList.add('loading');
-            loginText.textContent = 'Please Wait...';
+            loginText.textContent = '{Lang::T('Please Wait...')|escape:'javascript'}';
         });
     </script>
     {if $_c['tawkto'] != ''}

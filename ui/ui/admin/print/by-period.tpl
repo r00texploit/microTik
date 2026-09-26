@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="{Lang::htmlLang()|escape:'html'}" dir="{Lang::direction()}">
 <head>
     <title>{$_title}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,6 +16,7 @@
             }
         }
     </style>
+    {include file="sections/language-head.tpl"}
 </head>
 
 <body>

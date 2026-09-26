@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{Lang::htmlLang()|escape:'html'}" dir="{Lang::direction()}">
 
 <head>
     <meta charset="UTF-8">
@@ -133,6 +133,7 @@
             window.print();
         }
     </script>
+    {include file="sections/language-head.tpl"}
 </head>
 
 <body {if !$nuxprint} onload="printpage()" {/if}>

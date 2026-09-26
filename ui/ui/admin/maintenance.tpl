@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="{Lang::htmlLang()|escape:'html'}" dir="{Lang::direction()}">
 
 <head>
     <title>{Lang::T('Site is down for maintenance')}</title>
@@ -195,6 +195,7 @@
         }
     </style>
 
+    {include file="sections/language-head.tpl"}
 </head>
 
 <body>
@@ -236,10 +237,10 @@
             const textHour = Math.floor((counter % day) / hour);
             const textMinute = Math.floor((counter % hour) / minute);
             const textSecond = Math.floor((counter % minute) / second)
-            document.querySelector(".day").innerText = textDay + ' Days';
-            document.querySelector(".hour").innerText = textHour + ' Hours';
-            document.querySelector(".minute").innerText = textMinute + ' Minutes';
-            document.querySelector(".second").innerText = textSecond + ' Seconds';
+            document.querySelector(".day").innerText = textDay + ' {Lang::T('Days')|escape:'javascript'}';
+            document.querySelector(".hour").innerText = textHour + ' {Lang::T('Hours')|escape:'javascript'}';
+            document.querySelector(".minute").innerText = textMinute + ' {Lang::T('Minutes')|escape:'javascript'}';
+            document.querySelector(".second").innerText = textSecond + ' {Lang::T('Seconds')|escape:'javascript'}';
         }
         setInterval(countDown, 1000);
     </script>

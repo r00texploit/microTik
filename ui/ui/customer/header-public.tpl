@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="{Lang::htmlLang()|escape:'html'}" dir="{Lang::direction()}">
 
 <head>
     <meta charset="utf-8">
@@ -18,6 +18,7 @@
 
 
 
+    {include file="sections/language-head.tpl"}
 </head>
 
 <body id="app" class="app off-canvas body-full">

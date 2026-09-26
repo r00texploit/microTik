@@ -23,8 +23,14 @@
                 var monthlySales = JSON.parse('{/literal}{$monthlySales|json_encode}{literal}');
 
                 var monthNames = [
-                    'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
-                    'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'
+                    {/literal}
+                    '{Lang::T('Jan')|escape:'javascript'}', '{Lang::T('Feb')|escape:'javascript'}',
+                    '{Lang::T('Mar')|escape:'javascript'}', '{Lang::T('Apr')|escape:'javascript'}',
+                    '{Lang::T('May')|escape:'javascript'}', '{Lang::T('Jun')|escape:'javascript'}',
+                    '{Lang::T('Jul')|escape:'javascript'}', '{Lang::T('Aug')|escape:'javascript'}',
+                    '{Lang::T('Sep')|escape:'javascript'}', '{Lang::T('Oct')|escape:'javascript'}',
+                    '{Lang::T('Nov')|escape:'javascript'}', '{Lang::T('Dec')|escape:'javascript'}'
+                    {literal}
                 ];
 
                 var labels = [];
@@ -32,7 +38,7 @@
 
                 for (var i = 1; i <= 12; i++) {
                     var month = findMonthData(monthlySales, i);
-                    labels.push(month ? monthNames[i - 1] : monthNames[i - 1].substring(0, 3));
+                    labels.push(monthNames[i - 1]);
                     data.push(month ? month.totalSales : 0);
                 }
 
@@ -42,7 +48,7 @@
                     data: {
                         labels: labels,
                         datasets: [{
-                            label: 'Monthly Sales',
+                            label: '{/literal}{Lang::T('Monthly Sales')|escape:'javascript'}{literal}',
                             data: data,
                             backgroundColor: 'rgba(2, 10, 242)', // Customize the background color
                             borderColor: 'rgba(255, 99, 132, 1)', // Customize the border color

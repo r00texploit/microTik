@@ -4,20 +4,20 @@
     <footer class="main-footer">
         {$_c['CompanyFooter']}
         <div class="pull-right">
-            <a href="javascript:showPrivacy()">Privacy</a>
+            <a href="javascript:showPrivacy()">{Lang::T('Privacy Policy')}</a>
             &bull;
-            <a href="javascript:showTaC()">T &amp; C</a>
+            <a href="javascript:showTaC()">{Lang::T('Terms and Conditions')}</a>
         </div>
     </footer>
 {else}
     <footer class="main-footer">
-        PHPNuxBill by <a href="https://github.com/hotspotbilling/phpnuxbill" rel="nofollow noreferrer noopener"
-            target="_blank">iBNuX</a>, Theme by <a href="https://adminlte.io/" rel="nofollow noreferrer noopener"
+        PHPNuxBill {Lang::T('by')} <a href="https://github.com/hotspotbilling/phpnuxbill" rel="nofollow noreferrer noopener"
+            target="_blank">iBNuX</a>, {Lang::T('Theme by')} <a href="https://adminlte.io/" rel="nofollow noreferrer noopener"
             target="_blank">AdminLTE</a>
         <div class="pull-right">
-            <a href="javascript:showPrivacy()">Privacy</a>
+            <a href="javascript:showPrivacy()">{Lang::T('Privacy Policy')}</a>
             &bull;
-            <a href="javascript:showTaC()">T &amp; C</a>
+            <a href="javascript:showTaC()">{Lang::T('Terms and Conditions')}</a>
         </div>
     </footer>
 {/if}
@@ -29,7 +29,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                <button type="button" class="close" data-dismiss="modal" aria-label="{Lang::T('Close')|escape:'html'}"><span
                         aria-hidden="true">&times;</span></button>
             </div>
             <div class="modal-body" id="HTMLModal_konten"></div>

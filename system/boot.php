@@ -20,6 +20,8 @@ function _notify($msg, $type = 'e')
 }
 
 $ui = new Smarty();
+$ui->registerClass('Lang', 'Lang');
+$ui->registerClass('Text', 'Text');
 $ui->assign('_kolaps', $_COOKIE['kolaps']);
 if (!empty($config['theme']) && $config['theme'] != 'default') {
     $_theme = APP_URL . '/' . $UI_PATH . '/themes/' . $config['theme'];
@@ -47,7 +49,7 @@ $ui->assign('_url', APP_URL . '/?_route=');
 $ui->assign('_path', __DIR__);
 $ui->assign('_c', $config);
 $ui->assign('user_language', $_SESSION['user_language']);
-$ui->assign('UPLOAD_PATH', str_replace($root_path, '',  $UPLOAD_PATH));
+$ui->assign('UPLOAD_PATH', str_replace('\\', '/', str_replace($root_path, '', $UPLOAD_PATH)));
 $ui->assign('CACHE_PATH', str_replace($root_path, '',  $CACHE_PATH));
 $ui->assign('PAGES_PATH', str_replace($root_path, '',  $PAGES_PATH));
 $ui->assign('_system_menu', 'dashboard');

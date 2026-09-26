@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="{Lang::htmlLang()|escape:'html'}" dir="{Lang::direction()}">
 
 <head>
     <meta charset="utf-8">
@@ -32,6 +32,7 @@
         {$xheader}
     {/if}
 
+    {include file="sections/language-head.tpl"}
 </head>
 
 <body class="hold-transition modern-skin-dark sidebar-mini {if $_kolaps}sidebar-collapse{/if}">
@@ -43,7 +44,7 @@
             </a>
             <nav class="navbar navbar-static-top">
                 <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button" onclick="return setKolaps()">
-                    <span class="sr-only">Toggle navigation</span>
+                    <span class="sr-only">{Lang::T('Toggle navigation')}</span>
                 </a>
                 <div class="navbar-custom-menu">
                     <ul class="nav navbar-nav">
@@ -71,14 +72,14 @@
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 <img src="{$app_url}/{$UPLOAD_PATH}{$_admin['photo']}.thumb.jpg"
                                     onerror="this.src='{$app_url}/{$UPLOAD_PATH}/admin.default.png'" class="user-image"
-                                    alt="Avatar">
+                                    alt="{Lang::T('Avatar')|escape:'html'}">
                                 <span class="hidden-xs">{$_admin['fullname']}</span>
                             </a>
                             <ul class="dropdown-menu">
                                 <li class="user-header">
                                     <img src="{$app_url}/{$UPLOAD_PATH}{$_admin['photo']}.thumb.jpg"
                                         onerror="this.src='{$app_url}/{$UPLOAD_PATH}/admin.default.png'" class="img-circle"
-                                        alt="Avatar">
+                                        alt="{Lang::T('Avatar')|escape:'html'}">
                                     <p>
                                         {$_admin['fullname']}
                                         <small>{Lang::T($_admin['user_type'])}</small>
@@ -170,13 +171,13 @@
                             </a>
                             <ul class="treeview-menu">
                                 <li {if $_routes[1] eq 'hotspot' }class="active" {/if}><a
-                                        href="{Text::url('services/hotspot')}">Hotspot</a></li>
+                                        href="{Text::url('services/hotspot')}">{Lang::T('Hotspot')}</a></li>
                                 <li {if $_routes[1] eq 'pppoe' }class="active" {/if}><a
                                         href="{Text::url('services/pppoe')}">PPPOE</a></li>
                                 <li {if $_routes[1] eq 'vpn' }class="active" {/if}><a href="{Text::url('services/vpn')}">VPN</a>
                                 </li>
                                 <li {if $_routes[1] eq 'list' }class="active" {/if}><a
-                                        href="{Text::url('bandwidth/list')}">Bandwidth</a></li>
+                                        href="{Text::url('bandwidth/list')}">{Lang::T('Bandwidth')}</a></li>
                                 {if $_c['enable_balance'] == 'yes'}
                                     <li {if $_routes[1] eq 'balance' }class="active" {/if}><a
                                             href="{Text::url('services/balance')}">{Lang::T('Customer Balance')}</a></li>
@@ -247,13 +248,13 @@
                             </a>
                             <ul class="treeview-menu">
                                 <li {if $_routes[0] eq 'routers' and $_routes[1] eq '' }class="active" {/if}><a
-                                        href="{Text::url('routers')}">Routers</a></li>
+                                        href="{Text::url('routers')}">{Lang::T('Routers')}</a></li>
                                 <li {if $_routes[0] eq 'pool' and $_routes[1] eq 'list' }class="active" {/if}><a
-                                        href="{Text::url('pool/list')}">IP Pool</a></li>
+                                        href="{Text::url('pool/list')}">{Lang::T('IP Pool')}</a></li>
                                 <li {if $_routes[0] eq 'pool' and $_routes[1] eq 'port' }class="active" {/if}><a
-                                        href="{Text::url('pool/port')}">Port Pool</a></li>
+                                        href="{Text::url('pool/port')}">{Lang::T('Port Pool')}</a></li>
                                 <li {if $_routes[0] eq 'odp' and $_routes[1] eq '' }class="active" {/if}><a
-                                        href="{Text::url('odp')}">ODP List</a></li>
+                                        href="{Text::url('odp')}">{Lang::T('ODP List')}</a></li>
                                 {$_MENU_NETWORK}
                             </ul>
                         </li>
@@ -369,7 +370,7 @@
                                     </li>
                                 {/if}
                                 <li {if $_routes[1] eq 'message' }class="active" {/if}><a
-                                    href="{Text::url('logs/message')}">Message</a></li>
+                                    href="{Text::url('logs/message')}">{Lang::T('Message')}</a></li>
                                 {$_MENU_LOGS}
                             </ul>
                         </li>
@@ -382,14 +383,14 @@
                                 <span class="text">{Lang::T('Documentation')}</span>
                                 {if $_c['docs_clicked'] != 'yes'}
                                     <span class="pull-right-container"><small
-                                            class="label pull-right bg-green">New</small></span>
+                                            class="label pull-right bg-green">{Lang::T('New')}</small></span>
                                 {/if}
                             </a>
                         </li>
                         <li {if $_system_menu eq 'community' }class="active" {/if}>
                             <a href="{Text::url('community')}">
                                 <i class="ion ion-chatboxes"></i>
-                                <span class="text">Community</span>
+                                <span class="text">{Lang::T('Community')}</span>
                             </a>
                         </li>
                     {/if}

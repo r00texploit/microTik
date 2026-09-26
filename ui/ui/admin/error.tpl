@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="{Lang::htmlLang()|escape:'html'}" dir="{Lang::direction()}">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>Error - PHPNuxBill</title>
+    <title>{Lang::T('Error')} - PHPNuxBill</title>
     <link rel="shortcut icon" href="{$app_url}/ui/ui/images/logo.png" type="image/x-icon" />
 
     <link rel="stylesheet" href="{$app_url}/ui/ui/styles/bootstrap.min.css">
@@ -27,6 +27,7 @@
         }
     </style>
 
+    {include file="sections/language-head.tpl"}
 </head>
 
 <body class="hold-transition skin-blue">
@@ -47,18 +48,18 @@
                             <br>
                             {$error_message}
                             <br>
-                            Mikrotik troubleshooting: <br>
+                            {Lang::T('Mikrotik troubleshooting')}: <br>
                             <ul>
                                 <li>{Lang::T('Make sure you use API Port, Default 8728')}</li>
                                 <li>{Lang::T('Make sure Username and Password are correct')}</li>
                                 <li>{Lang::T('Make sure your hosting not blocking port to external')}</li>
                                 <li>{Lang::T('Make sure your Mikrotik accessible from PHPNuxBill')}</li>
                             </ul>
-                            {Lang::T('If you just update PHPNuxBill from upload files, try click Update')} Database
+                            {Lang::T('If you just update PHPNuxBill from upload files, try click Update')} {Lang::T('Database')}
                         </div>
                         <div class="box-footer">
                             <div class="btn-group btn-group-justified" role="group" aria-label="...">
-                                <a href="./update.php?step=4" style="color: black;" class="btn btn-info btn-sm btn-block">{Lang::T('Update')} Database</a>
+                                <a href="./update.php?step=4" style="color: black;" class="btn btn-info btn-sm btn-block">{Lang::T('Update')} {Lang::T('Database')}</a>
                                 <a href="{Text::url('community#update')}" style="color: black;" class="btn btn-success btn-sm btn-block">{Lang::T('Update PHPNuxBill')}</a>
                             </div>
                             <br>

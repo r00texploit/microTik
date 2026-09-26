@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="{Lang::htmlLang()|escape:'html'}" dir="{Lang::direction()}">
 
 <head>
     <title>{$_title}</title>
@@ -56,6 +56,7 @@
             }
         }
     </style>
+    {include file="sections/language-head.tpl"}
 </head>
 
 <body>

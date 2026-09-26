@@ -58,7 +58,7 @@
                         <div class="{$app_url}/ui-checkbox ui-checkbox-primary right">
                             <label>
                                 <input type="checkbox">
-                                <span>Remember me</span>
+                                <span>{Lang::T('Remember me')}</span>
                             </label>
                         </div>
                     </div>
@@ -76,9 +76,9 @@
                     <center>
                         <a href="{Text::url('forgot')}" class="btn btn-link">{Lang::T('Forgot Password')}</a>
                         <br>
-                        <a href="javascript:showPrivacy()">Privacy</a>
+                        <a href="javascript:showPrivacy()">{Lang::T('Privacy Policy')}</a>
                         &bull;
-                        <a href="javascript:showTaC()">T &amp; C</a>
+                        <a href="javascript:showTaC()">{Lang::T('Terms and Conditions')}</a>
                     </center>
                 </form>
             </div>
@@ -91,7 +91,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                <button type="button" class="close" data-dismiss="modal" aria-label="{Lang::T('Close')|escape:'html'}"><span
                         aria-hidden="true">&times;</span></button>
             </div>
             <div class="modal-body" id="HTMLModal_konten"></div>

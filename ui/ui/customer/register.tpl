@@ -91,9 +91,9 @@
                         </div>
                         <br>
                         <center>
-                            <a href="javascript:showPrivacy()">Privacy</a>
+                            <a href="javascript:showPrivacy()">{Lang::T('Privacy Policy')}</a>
                             &bull;
-                            <a href="javascript:showTaC()">T &amp; C</a>
+                            <a href="javascript:showTaC()">{Lang::T('Terms and Conditions')}</a>
                         </center>
                     </div>
                 </div>

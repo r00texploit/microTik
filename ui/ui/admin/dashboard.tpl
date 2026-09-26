@@ -38,7 +38,7 @@
         window.addEventListener('DOMContentLoaded', function() {
             $.getJSON("./version.json?" + Math.random(), function(data) {
                 var localVersion = data.version;
-                $('#version').html('Version: ' + localVersion);
+                $('#version').html('{Lang::T('Version')|escape:'javascript'}: ' + localVersion);
                 $.getJSON(
                     "https://raw.githubusercontent.com/hotspotbilling/phpnuxbill/master/version.json?" +
                     Math
@@ -46,17 +46,17 @@
                     function(data) {
                         var latestVersion = data.version;
                         if (localVersion !== latestVersion) {
-                            $('#version').html('Latest Version: ' + latestVersion);
+                            $('#version').html('{Lang::T('Latest Version')|escape:'javascript'}: ' + latestVersion);
                             if (getCookie(latestVersion) != 'done') {
                                 Swal.fire({
                                     icon: 'info',
-                                    title: "New Version Available\nVersion: " + latestVersion,
+                                    title: "{Lang::T('New Version Available')|escape:'javascript'}\n{Lang::T('Version')|escape:'javascript'}: " + latestVersion,
                                     toast: true,
                                     position: 'bottom-right',
                                     showConfirmButton: true,
                                     showCloseButton: true,
                                     timer: 30000,
-                                    confirmButtonText: '<a href="{Text::url('community')}#latestVersion" style="color: white;">Update Now</a>',
+                                    confirmButtonText: '<a href="{Text::url('community')}#latestVersion" style="color: white;">{Lang::T('Update Now')|escape:'html'|escape:'javascript'}</a>',
                                     timerProgressBar: true,
                                     didOpen: (toast) => {
                                         toast.addEventListener('mouseenter', Swal.stopTimer)
